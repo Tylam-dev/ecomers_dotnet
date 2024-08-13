@@ -1,0 +1,21 @@
+services:
+  postgres-db:
+    image: postgres
+    container_name: e-comer-db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: e-comer-db
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+      image: dpage/pgadmin4
+      container_name: ecomers_dotnet
+      environment:
+        PGADMIN_DEFAULT_EMAIL: root@admin.com
+        PGADMIN_DEFAULT_PASSWORD: 12345
+      ports:
+        - "8080:80"
